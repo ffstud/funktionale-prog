@@ -32,7 +32,6 @@
   (define (good-enough? guess x)
     (< (abs (- (square guess) x)) 0.001))
   (define (improve guess x)
-
     (average guess (/ x guess)))
   (define (sqrt-iter guess x)
     (if (good-enough? guess x)
@@ -43,8 +42,18 @@
 
 #|
 Iterativ, weil am Ende immer ein Wert zurückgegeben wird und keine Prozedur.
-Wenn man Trace verwendet kann man dann sehen, dass keine "Stacks" entstehen, sondern immer
-nur präzisere Ergebnisse
+Wenn man Trace verwendet kann man dann sehen, dass keine "Stacks" entstehen, sondern immer Werte weiter gegeben werden
+
+> (newton2 100)
+>(sqrt-iter 1.0 100)
+>(sqrt-iter 50.5 100)
+>(sqrt-iter 26.24009900990099 100)
+>(sqrt-iter 15.025530119986813 100)
+>(sqrt-iter 10.840434673026925 100)
+>(sqrt-iter 10.032578510960604 100)
+>(sqrt-iter 10.000052895642693 100)
+>(sqrt-iter 10.000000000139897 100)
+<10.000000000139897
 |#
 
 ;A3
