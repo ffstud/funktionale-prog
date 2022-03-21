@@ -1,9 +1,6 @@
 #lang racket
-
 (require racket/trace)
-
-;A1
-
+;globale Prozeduren
 
 (define (good-enough? guess x)
   (< (abs (- (cube guess) x)) 0.001))
@@ -14,23 +11,22 @@
 (define (cube x)
   (expt x 3))
 
-(define (improve guess x)
-  (- guess (/ (- (cube guess) x) (* 3 (square guess)))))
+(define (average x y)
+  (/ (+ x y) 2))
 
-(define (cbrt-iter guess x)
+;A1
+
+(define (cuberoot x)
+  (define (cbrt-iter guess x)
+  (define (improve guess x)
+    (- guess (/ (- (cube guess) x) (* 3 (square guess)))))
   (if (good-enough? guess x)
       guess
       (cbrt-iter (improve guess x)
                  x)))
-
-(define (cuberoot x)
   (cbrt-iter 1.0 x))
 
-
 ;A2
-(define (average x y)
-  (/ (+ x y) 2))
-
 
 (define (newton2 x)
   (define (good-enough? guess x)
@@ -76,7 +72,7 @@
         (sqrt-iter (improve guess))))
   (trace sqrt-iter)
   (sqrt-iter 1.0))
-
+;-----Endlosschleife-----
 ;geht jedes mal wieder in den "else Zweig", weil das System die if Klausel als abgeschlossen sieht, wenn der guess gut genug ist.
 ;d.h. danach wird dann wieder sqrt-iter ausgeführt, weil das die nächste angegebene Prozedur ist
 
@@ -87,7 +83,7 @@
  (else (+ (fib (- n 1))
  (fib (- n 2))))))
 (trace fib)
-;cpu time: 8187 real time: 8712 gc time: 15 für (fib 10)
+;-> cpu time: 8187 real time: 8712 gc time: 15 für (fib 10)
 
 (define (fibiter n)
   (define (fib-iter a b n)
@@ -95,6 +91,6 @@
       (fib-iter (+ a b) a (- n 1))))
     (trace fib-iter)
   (fib-iter 0 1 n))
-;cpu time: 46 real time: 54 gc time: 0 für (fibiter 10)
+;-> cpu time: 46 real time: 54 gc time: 0 für (fibiter 10)
 
-;fibiter ist viel schneller als die rekursive Variante
+;-----fibiter ist viel schneller als die rekursive Variante-----
