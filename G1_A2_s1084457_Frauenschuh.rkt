@@ -41,9 +41,11 @@
   (trace sqrt-iter)
   (sqrt-iter 1.0 x))
 
-;Iterativ, weil am Ende immer ein Wert zurückgegeben wird und keine Prozedur.
-;Wenn man Trace verwendet kann man dann sehen, dass keine "Stacks" entstehen, sondern immer
-;nur präzisere Ergebnisse
+#|
+Iterativ, weil am Ende immer ein Wert zurückgegeben wird und keine Prozedur.
+Wenn man Trace verwendet kann man dann sehen, dass keine "Stacks" entstehen, sondern immer
+nur präzisere Ergebnisse
+|#
 
 ;A3
 
@@ -72,9 +74,11 @@
         (sqrt-iter (improve guess))))
   (trace sqrt-iter)
   (sqrt-iter 1.0))
-;-----Endlosschleife-----
-;geht jedes mal wieder in den "else Zweig", weil das System die if Klausel als abgeschlossen sieht, wenn der guess gut genug ist.
-;d.h. danach wird dann wieder sqrt-iter ausgeführt, weil das die nächste angegebene Prozedur ist
+#|
+-----Endlosschleife-----
+geht jedes mal wieder in den "else Zweig", weil das System die if Klausel als abgeschlossen sieht, wenn der guess gut genug ist.
+d.h. danach wird dann wieder sqrt-iter ausgeführt, weil das die nächste angegebene Prozedur ist
+|#
 
 ;A5
 (define (fib n)
