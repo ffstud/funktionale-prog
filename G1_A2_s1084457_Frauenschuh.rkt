@@ -1,5 +1,8 @@
+;s12109584 Frauenschuh Florian
+
 #lang racket
 (require racket/trace)
+
 ;globale Prozeduren
 
 (define (good-enough? guess x)
