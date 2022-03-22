@@ -22,7 +22,7 @@
 (define (cuberoot x)
   (define (cbrt-iter guess x)
   (define (improve guess x)
-    (/ (+ (/ x (square guess)) (* 2 guess)) 3)
+    (/ (+ (/ x (square guess)) (* 2 guess)) 3))
   (if (good-enough? guess x)
       guess
       (cbrt-iter (improve guess x)
