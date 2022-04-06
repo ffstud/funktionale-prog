@@ -10,11 +10,8 @@
 ;A1
 
 (define (mylast xs)
-  (if (null? xs)
-      null
-  (if (null? (cdr xs))
-      (car xs)
-  (mylast (cdr xs)))))
+  (if (null? (cdr xs))(car xs)
+      (mylast (cdr xs))))
 (trace mylast)
 
 
