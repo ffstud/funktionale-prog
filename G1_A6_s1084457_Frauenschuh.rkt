@@ -46,4 +46,5 @@
 ;A5
 (define (nestingLevel xs (level 1))
   (if (list? xs)
-      (+ level (apply max (map nestingLevel xs))) 0)) ;Apply == map for nested lists
+      (+ level (apply max (map nestingLevel xs)))
+      0)) ;Apply == map for nested lists
