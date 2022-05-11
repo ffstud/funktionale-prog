@@ -34,7 +34,7 @@
   (accumulate-tree tree (lambda (x) 1) + 0))
 
 (define (sum tree)
-  (accumulate-tree tree append + 0))
+  (accumulate-tree tree (lambda (x) x) + 0))
 
 
 ;A3
