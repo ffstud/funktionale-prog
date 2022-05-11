@@ -41,6 +41,12 @@
 (define (leaflist t)
   (flatten t))
   
+  (define (leaflist2 tree)
+  (cond ((null? tree) null)
+        ((not (pair? tree)) (append(list tree)))
+        (else (append (leaflist (car tree))
+                      (leaflist (cdr tree))))))
+  
 (define xs (list (list 1 2) (list 3 4)))
 
 ;A5
