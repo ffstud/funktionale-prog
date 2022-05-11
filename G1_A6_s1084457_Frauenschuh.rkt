@@ -40,6 +40,7 @@
 ;A3
 (define (leaflist t)
   (flatten t))
+  
 (define xs (list (list 1 2) (list 3 4)))
 
 ;A5
